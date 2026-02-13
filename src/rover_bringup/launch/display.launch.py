@@ -11,6 +11,13 @@ def generate_launch_description():
     default_model_path = os.path.join(pkg_share, 'src', 'description', 'sam_bot_description.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
 
+    robot_state_publisher_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        parameters=[{'robot_description': Command(['xacro ', LaunchConfiguration('model')])}]
+    )
+
     return LaunchDescription([
-        
+        robot_state_publisher_node,
+
     ])
