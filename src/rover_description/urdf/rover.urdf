@@ -64,4 +64,9 @@
     </link>
     <xacro:wheel prefix="drivewhl_l" x_reflect="-1" y_reflect="1" />
     <xacro:wheel prefix="drivewhl_r" x_reflect="-1" y_reflect="-1" />
+    <joint name = "caster_joint" type = "fixed">
+        <parent link = "base_link" />
+        <child link = "front_caster" />
+        <origin xyz = "${caster_xoff} 0.0 ${-(base_height / 2.0)}" rpy = "0 0 0" />
+    </joint>
 </robot>
