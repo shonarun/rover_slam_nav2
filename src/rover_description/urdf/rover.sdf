@@ -153,46 +153,6 @@
     <xacro:wheel prefix="drivewhl_r" x_reflect="-1" y_reflect="-1" />
     <xacro:wheel prefix="drivewhl_lf" x_reflect="1" y_reflect="1" />
     <xacro:wheel prefix="drivewhl_rf" x_reflect="1" y_reflect="-1" />
-
-    <link name="front_caster">
-      <pose relative_to="caster_joint" />
-
-      <visual name="front_caster_visual">
-        <geometry>
-          <sphere>
-            <radius>${(wheel_radius+wheel_zoff-(base_height/2))}</radius>
-          </sphere>
-        </geometry>
-        <material>
-          <ambient>0 1 1 1</ambient>
-          <diffuse>0 1 1 1</diffuse>
-        </material>
-      </visual>
-
-      <collision name="front_caster_collision">
-        <geometry>
-          <sphere>
-            <radius>${(wheel_radius+wheel_zoff-(base_height/2))}</radius>
-          </sphere>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>0.001</mu>
-              <mu2>0.001</mu2>
-            </ode>
-          </friction>
-        </surface>
-      </collision>
-
-      <xacro:sphere_inertia m="0.5" r="${(wheel_radius+wheel_zoff-(base_height/2))}" />
-    </link>
-
-    <joint name="caster_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>front_caster</child>
-      <pose relative_to="base_link">${caster_xoff} 0.0 ${-(base_height/2)} 0 0 0</pose>
-    </joint>
     <link name='imu_link'>
       <pose relative_to="imu_joint" />
       <visual name="imu_link_visual">
