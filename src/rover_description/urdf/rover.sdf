@@ -355,6 +355,8 @@
           </box>
         </geometry>
       </collision>
+
+      <xacro:box_inertia m="0.035" w="0.015" d="0.130" h="0.0222" />
     </link>
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
       <!-- wheels -->
