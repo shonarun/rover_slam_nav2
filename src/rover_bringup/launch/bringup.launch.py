@@ -29,6 +29,12 @@ def generate_launch_description():
         )
     )
 
+    display_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_dir, 'launch', 'display.launch.py')
+        )
+    )
+
     # Include Nav2 launch file
     nav2_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -73,4 +79,5 @@ def generate_launch_description():
         slam_launch,
         nav2_launch,
         costmap_markers_node,
+        display_launch,
     ])
