@@ -5,6 +5,8 @@ from ament_index_python.packages import get_package_share_directory
 import os
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
+from launch.substitutions import PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
@@ -22,7 +24,23 @@ def generate_launch_description():
             os.path.join(pkg_dir, 'launch', 'static_tf.launch.py')
         )
     )
+
+    # Include Nav2 launch file
+    nav2_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare('nav2_bringup'),
+                'launch',
+                'navigation_launch.py'
+            ])
+        ),
+        launch_arguments={
+            'params_file': nav2_params_file
+        }.items()
+    )
     
     return LaunchDescription([
         static_tf_launch,
+        declare_params,
+        nav2_launch
     ])
