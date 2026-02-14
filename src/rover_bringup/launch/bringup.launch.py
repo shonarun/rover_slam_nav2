@@ -73,4 +73,5 @@ def generate_launch_description():
         declare_params,
         slam_launch,
         nav2_launch,
+        costmap_markers_node,
     ])
