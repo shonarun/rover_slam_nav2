@@ -55,6 +55,14 @@ def generate_launch_description():
         }.items(),
     )
 
+    robot_localization_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[os.path.join(rover_bringup_pkg_share, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+    )
+
     return LaunchDescription([
         DeclareLaunchArgument(name='model', default_value=default_model_path, description='Absolute path to robot model file'),
         DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path, description='Absolute path to rviz config file'),
@@ -65,5 +73,6 @@ def generate_launch_description():
         gz_server,
         ros_gz_bridge,
         spawn_entity,
+        robot_localization_node,
 
     ])
