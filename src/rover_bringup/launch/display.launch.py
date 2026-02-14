@@ -9,11 +9,13 @@ import os
 def generate_launch_description():
     rover_bringup_pkg_share = get_package_share_directory(package='rover_bringup').find('rover_bringup')
     rover_description_pkg_share = get_package_share_directory(package='rover_description').find('rover_description')
+    rover_worlds_pkg_share = get_package_share_directory(package='rover_worlds').find('rover_worlds')
     default_model_path = os.path.join(rover_description_pkg_share, 'urdf', 'rover.sdf')
     default_rviz_config_path = os.path.join(rover_bringup_pkg_share, 'rviz', 'config.rviz')
     bridge_config_path = os.path.join(rover_bringup_pkg_share, 'config', 'bridge_config.yaml')
     ros_gz_sim_share = get_package_share_directory('ros_gz_sim')
     gz_spawn_model_launch_source = os.path.join(ros_gz_sim_share, "launch", "gz_spawn_model.launch.py")
+    world_path = os.path.join(rover_worlds_pkg_share, 'worlds', 'my_world.sdf')
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
