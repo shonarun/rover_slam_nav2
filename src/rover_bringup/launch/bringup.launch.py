@@ -12,10 +12,10 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     # Declare argument for params file
     nav2_params_file = PathJoinSubstitution([
-    FindPackageShare('your_package_name'),
-    'config',
-    'nav2_params.yaml'
-])
+        FindPackageShare('your_package_name'),
+        'config',
+        'nav2_params.yaml'
+    ])
     declare_params = DeclareLaunchArgument(
         'nav2_params_file',
         default_value='nav2_params.yaml',
