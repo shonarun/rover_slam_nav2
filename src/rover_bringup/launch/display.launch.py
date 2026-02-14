@@ -50,7 +50,7 @@ def generate_launch_description():
         launch_arguments={
             'world': 'my_world',
             'topic': '/robot_description',
-            'entity_name': 'sam_bot',
+            'entity_name': 'rover',
             'z': '0.65',
         }.items(),
     )
