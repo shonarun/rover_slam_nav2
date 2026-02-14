@@ -291,6 +291,14 @@
           </cylinder>
         </geometry>
       </visual>
+      <collision name="lidar_link_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.055</length>
+          </cylinder>
+        </geometry>
+      </collision>
     </link>
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
       <!-- wheels -->
