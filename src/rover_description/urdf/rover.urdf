@@ -99,6 +99,12 @@
                 <color rgba="0 1.0 1.0 1.0" />
             </material>
         </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="${(wheel_radius+wheel_zoff-(base_height/2))}" />
+            </geometry>
+        </collision>
     </link>
     <xacro:wheel prefix="drivewhl_l" x_reflect="-1" y_reflect="1" />
     <xacro:wheel prefix="drivewhl_r" x_reflect="-1" y_reflect="-1" />
