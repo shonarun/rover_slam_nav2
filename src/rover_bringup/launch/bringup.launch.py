@@ -42,9 +42,23 @@ def generate_launch_description():
             'params_file': nav2_params_file
         }.items()
     )
+
+    slam_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare('slam_toolbox'),
+                'launch',
+                'online_async_launch.py'
+            ])
+        ),
+        launch_arguments={
+            'use_sim_time': 'true'
+        }.items()
+    )
     
     return LaunchDescription([
         static_tf_launch,
         declare_params,
+        slam_launch,
         nav2_launch,
     ])
