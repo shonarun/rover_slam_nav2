@@ -284,10 +284,12 @@
     <link name='lidar_link'>
       <pose relative_to="lidar_joint" />
       <visual name="lidar_link_visual">
-        <cylinder>
-          <radius>0.0508</radius>
-          <length>0.055</length>
-        </cylinder>
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.055</length>
+          </cylinder>
+        </geometry>
       </visual>
     </link>
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
