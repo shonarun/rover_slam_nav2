@@ -73,6 +73,16 @@ def generate_launch_description():
         ]
     )
     
+    teleop_keyboard_node = Node(
+        package='teleop_twist_keyboard',
+        executable='teleop_twist_keyboard',
+        name='base_to_laser_tf',
+        arguments=[
+            '--ros-args', '-p', 'stamped:=true',
+            '--remap', 'cmd_vel:=/demo/cmd_vel',
+        ]
+    )
+
     return LaunchDescription([
         static_tf_launch,
         declare_params,
