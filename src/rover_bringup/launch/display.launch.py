@@ -12,6 +12,7 @@ def generate_launch_description():
     default_model_path = os.path.join(rover_description_pkg_share, 'urdf', 'rover.sdf')
     default_rviz_config_path = os.path.join(rover_bringup_pkg_share, 'rviz', 'config.rviz')
     bridge_config_path = os.path.join(rover_bringup_pkg_share, 'config', 'bridge_config.yaml')
+    ros_gz_sim_share = get_package_share_directory('ros_gz_sim')
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
