@@ -281,6 +281,15 @@
       <child>imu_link</child>
       <pose relative_to="base_link">0.0 0.0 0.01 0 0 0</pose>
     </joint>
+    <link name='lidar_link'>
+      <pose relative_to="lidar_joint" />
+      <visual name="lidar_link_visual">
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.055</length>
+          </cylinder>
+      </visual>
+    </link>
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
       <!-- wheels -->
       <left_joint>drivewhl_l_joint</left_joint>
