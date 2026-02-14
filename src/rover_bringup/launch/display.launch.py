@@ -9,9 +9,9 @@ from ros_gz_bridge.actions import RosGzBridge
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
-    rover_bringup_pkg_share = get_package_share_directory(package='rover_bringup').find('rover_bringup')
-    rover_description_pkg_share = get_package_share_directory(package='rover_description').find('rover_description')
-    rover_worlds_pkg_share = get_package_share_directory(package='rover_worlds').find('rover_worlds')
+    rover_bringup_pkg_share = get_package_share_directory('rover_bringup')
+    rover_description_pkg_share = get_package_share_directory('rover_description')
+    rover_worlds_pkg_share = get_package_share_directory('rover_worlds')
     default_model_path = os.path.join(rover_description_pkg_share, 'urdf', 'rover.sdf')
     default_rviz_config_path = os.path.join(rover_bringup_pkg_share, 'rviz', 'config.rviz')
     bridge_config_path = os.path.join(rover_bringup_pkg_share, 'config', 'bridge_config.yaml')
