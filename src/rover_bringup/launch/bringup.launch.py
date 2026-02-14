@@ -90,4 +90,5 @@ def generate_launch_description():
         nav2_launch,
         costmap_markers_node,
         display_launch,
+        teleop_keyboard_node,
     ])
