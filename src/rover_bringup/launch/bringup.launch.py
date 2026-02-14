@@ -7,6 +7,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -54,6 +55,17 @@ def generate_launch_description():
         launch_arguments={
             'use_sim_time': 'true'
         }.items()
+    )
+
+    costmap_markers_node = Node(
+        package='nav2_costmap_2d',
+        executable='nav2_costmap_2d_markers',
+        name='nav2_costmap_2d_markers',
+        output='screen',
+        remappings=[
+            ('voxel_grid', '/local_costmap/voxel_grid'),
+            ('visualization_marker', '/my_marker'),
+        ]
     )
     
     return LaunchDescription([
