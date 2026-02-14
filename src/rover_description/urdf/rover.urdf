@@ -88,6 +88,8 @@
         <child name="base_footprint" />
         <origin xyz="0.0 0.0 ${-(wheel_radius+wheel_zoff)}" rpy="0 0 0" />
     </joint>
+    <xacro:wheel prefix="drivewhl_l" x_reflect="-1" y_reflect="1" />
+    <xacro:wheel prefix="drivewhl_r" x_reflect="-1" y_reflect="-1" />
     <link name="front_caster">
         <visual>
             <geometry>
