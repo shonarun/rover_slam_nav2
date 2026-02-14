@@ -51,7 +51,7 @@ def generate_launch_description():
             'world': 'my_world',
             'topic': '/robot_description',
             'entity_name': 'rover',
-            'z': '0.65',
+            'z': '0.20',
         }.items(),
     )
 
