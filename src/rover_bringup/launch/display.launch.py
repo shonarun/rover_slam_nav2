@@ -3,12 +3,12 @@ from launch.actions import DeclareLaunchArgument
 from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import Command, LaunchConfiguration
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
-    rover_bringup_pkg_share = FindPackageShare(package='rover_bringup').find('rover_bringup')
-    rover_description_pkg_share = FindPackageShare(package='rover_description').find('rover_description')
+    rover_bringup_pkg_share = get_package_share_directory(package='rover_bringup').find('rover_bringup')
+    rover_description_pkg_share = get_package_share_directory(package='rover_description').find('rover_description')
     default_model_path = os.path.join(rover_description_pkg_share, 'urdf', 'rover.sdf')
     default_rviz_config_path = os.path.join(rover_bringup_pkg_share, 'rviz', 'config.rviz')
     bridge_config_path = os.path.join(rover_bringup_pkg_share, 'config', 'bridge_config.yaml')
