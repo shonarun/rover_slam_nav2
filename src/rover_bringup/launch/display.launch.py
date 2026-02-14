@@ -13,6 +13,7 @@ def generate_launch_description():
     default_rviz_config_path = os.path.join(rover_bringup_pkg_share, 'rviz', 'config.rviz')
     bridge_config_path = os.path.join(rover_bringup_pkg_share, 'config', 'bridge_config.yaml')
     ros_gz_sim_share = get_package_share_directory('ros_gz_sim')
+    gz_spawn_model_launch_source = os.path.join(ros_gz_sim_share, "launch", "gz_spawn_model.launch.py")
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
