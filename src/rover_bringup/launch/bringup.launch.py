@@ -76,7 +76,7 @@ def generate_launch_description():
     teleop_keyboard_node = Node(
         package='teleop_twist_keyboard',
         executable='teleop_twist_keyboard',
-        name='base_to_laser_tf',
+        name='keyboard',
         arguments=[
             '--ros-args', '-p', 'stamped:=true',
             '--remap', 'cmd_vel:=/demo/cmd_vel',
@@ -90,5 +90,4 @@ def generate_launch_description():
         nav2_launch,
         costmap_markers_node,
         display_launch,
-        teleop_keyboard_node,
     ])
