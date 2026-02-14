@@ -12,7 +12,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     # Declare argument for params file
     nav2_params_file = PathJoinSubstitution([
-        FindPackageShare('your_package_name'),
+        FindPackageShare('rover_bringup'),
         'config',
         'nav2_params.yaml'
     ])
